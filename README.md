@@ -1,58 +1,58 @@
-# vite-plugin-vitepress-markdown
-
-## 功能简介
-将markdown文件转为vue组件。
-
-## 安装
-```bash
-npm install vite-plugin-vitepress-markdown -D
-```
-
-## 依赖
-- vite
-- vitepress
-
-## 使用方式
-### 插件
-```ts
-import { VitePluginVitePressMarkdown } from 'vite-plugin-vitepress-markdown'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [VitePluginVitePressMarkdown(), vue({
-    include: [/\.vue$/, /\.md$/],
-  })],
-})
-```
-
-```ts 
-<script setup lang="ts">
-import TestVue from './test.md'
-</script>
-
-<template>
-  <TestVue />
-</template>
-
-<style scoped></style>
-```
-
-### 手动解析
-```ts
-import { Parser } from 'vite-plugin-vitepress-markdown'
-import { resolve } from 'path'
-import testCode from './fixture/test.md?raw'
-
-const srcDir = resolve(__dirname, './markdown')
-
-const parser = new Parser({
-  root: srcDir,
-  base: '/',
-} as any, {})
-
-await parser.setupRender()
-const source = await parser.transform(testCode, resolve(srcDir, 'test.md'))
-```
-
-## 效果
-![vite-plugin-vitepress-markdown](./screenshot/vite-plugin-vitepress-markdown.jpg)
+{
+  "name": "@m-f2e/vite-plugin-vitepress-markdown",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "vitest -u mdToVue.test",
+    "dev:playground": "vite dev playground",
+    "build:playground": "vite build playground",
+    "preview:playground": "vite preview playground",
+    "build": "tsup",
+    "version:tag": "bumpp",
+    "changelog": "changelogen --output CHANGELOG.md",
+    "npm:publish": "pnpm publish"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./theme": {
+      "require": "./dist/theme.js",
+      "import": "./dist/theme.mjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
+  "keywords": [
+    "vite",
+    "vitepress",
+    "vite-plugin"
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "mz 16619930394@163.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@mistjs/eslint-config-vue": "^0.0.5",
+    "@types/node": "^20.3.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "bumpp": "^9.1.1",
+    "changelogen": "^0.5.3",
+    "eslint": "^8.43.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9",
+    "vite-plugin-inspect": "^0.7.28",
+    "vitepress": "1.0.0-beta.3",
+    "vitest": "^0.32.2",
+    "vue": "^3.3.4"
+  }
+}
