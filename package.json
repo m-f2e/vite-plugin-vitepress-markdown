@@ -11,9 +11,9 @@
     "build:playground": "vite build playground",
     "preview:playground": "vite preview playground",
     "build": "tsup",
-    "release": "bumpp",
+    "tag": "bumpp",
     "changelog": "changelogen --output CHANGELOG.md",
-    "publish": "pnpm build && pnpm publish"
+    "publish": "pnpm publish"
   },
   "exports": {
     ".": {
