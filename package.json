@@ -1,6 +1,6 @@
 {
   "name": "@m-f2e/vite-plugin-vitepress-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -11,9 +11,9 @@
     "build:playground": "vite build playground",
     "preview:playground": "vite preview playground",
     "build": "tsup",
-    "tag": "bumpp",
+    "version:tag": "bumpp",
     "changelog": "changelogen --output CHANGELOG.md",
-    "publish": "pnpm publish"
+    "npm:publish": "pnpm publish"
   },
   "exports": {
     ".": {
