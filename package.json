@@ -35,7 +35,10 @@
   "files": [
     "dist"
   ],
-  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "mz 16619930394@163.com",
   "license": "ISC",
   "devDependencies": {
     "@mistjs/eslint-config-vue": "^0.0.5",
